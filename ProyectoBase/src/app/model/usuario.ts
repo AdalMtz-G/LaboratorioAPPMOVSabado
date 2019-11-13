@@ -5,4 +5,3 @@ export class Usuario {
     public contrasena: string;
     public confirmacionContrasena: string;
 }
-
