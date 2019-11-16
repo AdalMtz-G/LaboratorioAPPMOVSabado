@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import {AgregarCuentaPage} from './agregar-cuenta/agregar-cuenta.page';
 
 
@@ -11,7 +11,10 @@ import {AgregarCuentaPage} from './agregar-cuenta/agregar-cuenta.page';
 export class CuentaPage implements OnInit {
 
   public cuentas;
-  constructor(public modalController: ModalController) { }
+ 
+  Cantidad: any;
+  Nombre: any;
+  constructor(public modalController: ModalController,) { }
 
   ngOnInit() {
     this.cuentas = [
@@ -21,14 +24,17 @@ export class CuentaPage implements OnInit {
       {Cantidad: 500.00, Nombre: 'Débito Banamex'},
     ];
   }
-
+  
   async onAgregarCuenta(){
+    
     const modal = await this.modalController.create({
       component: AgregarCuentaPage,
       componentProps: {
         titulo: 'Agregar Cuenta'
       }
+      
     });
     return await modal.present();
   }
+
 }
